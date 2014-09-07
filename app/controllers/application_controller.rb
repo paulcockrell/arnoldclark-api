@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
 
   private
 
-  def failure(exception)
-    render :json => {:success => false, :error => exception.errors.messages}
+  def server_error(exception)
+    render :json => {:success => false}, :status => 404
   end
 end
