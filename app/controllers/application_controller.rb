@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::API
   include ActionController::Serialization
 
-  class MissingParameters < StandardError; end
-
   private
 
-  def failure
-    render :json => {:success => false}
+  def failure(exception)
+    render :json => {:success => false, :error => exception.errors.messages}
   end
 end

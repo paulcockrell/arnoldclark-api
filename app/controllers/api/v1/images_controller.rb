@@ -1,20 +1,21 @@
 module Api
   module V1
     class ImagesController < ApplicationController
-      rescue_from MissingParameters, RestClient::ResourceNotFound, :with => :failure
+      before_filter :validate_params
 
       def index
-        @images = ImageManager.find(*image_manager_params)
+        @images = ImageManager.find(params[:registration], params[:stock_reference])
 
         render json: @images
       end
 
+
       protected
 
-      def image_manager_params
-        raise MissingParameters unless params.has_key?(:registration) && params.has_key?(:stock_reference)
-
-        [params[:registration].to_s, params[:stock_reference].to_s]
+      def validate_params
+        unless (ImageManager::REQUIRED_PARAMS - params.symbolize_keys.keys).count.zero?
+          params = ({:registration => "", :stock_reference => ""}).merge params
+        end
       end
     end
   end

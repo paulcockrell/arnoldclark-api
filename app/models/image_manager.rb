@@ -1,4 +1,5 @@
 class ImageManager
+  REQUIRED_PARAMS = [:registration, :stock_reference]
 
   def self.find(registration, stock_reference)
     image_array = create_image_instances(registration, stock_reference)
