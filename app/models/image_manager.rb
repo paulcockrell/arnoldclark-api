@@ -8,7 +8,7 @@ class ImageManager
         begin
           response = RestClient.get(image.url)
           image.present = response.code == 200 ? true : false
-        rescue SocketError
+        rescue SocketError, URI::InvalidURIError, RestClient::ResourceNotFound
           image.present = false
         end
       end

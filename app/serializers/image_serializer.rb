@@ -5,5 +5,10 @@ class ImageSerializer < ActiveModel::Serializer
              :present,
              :registration,
              :stock_reference,
+             :success,
              :url
+
+  def success
+    true
+  end
 end
