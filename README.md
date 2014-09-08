@@ -16,6 +16,7 @@ Install and run
 
 1. Install Ruby 2.1.0 and bundle gem
 2. Install api app and run
+
 ```shell
 git clone https://github.com/paulcockrell/arnoldclark-api.git
 cd ./arnoldclark-api
