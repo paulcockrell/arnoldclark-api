@@ -13,3 +13,12 @@ gem 'rest_client'
 gem 'active_model_serializers'
 
 gem 'rack-cors', :require => 'rack/cors'
+
+# Testing
+group :development, :test do
+  gem 'minitest'
+  gem 'rspec-rails'
+  gem 'rspec-expectations'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+end
