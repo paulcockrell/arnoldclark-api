@@ -1,3 +1,5 @@
+require Rails.root.join("lib/obfuscator.rb")
+
 class Image
   include ActiveModel::Validations
   include ActiveModel::Serialization
