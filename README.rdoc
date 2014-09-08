@@ -1,6 +1,7 @@
-== README
+# Arnold Clark Apiapp
 
-=== What is the Arnold Clark Image loadertron 2000 api app?
+What is the Arnold Clark Image api app?
+---------------------------------------
 
 The api app is intended to take any processing away from the main application (webapp) that the user interacts with. This means the main site can be under heavy use and not suffer from much of a performance hit. This app does all the heavy lifting, accross multiple threads.
 
@@ -10,16 +11,26 @@ The image loader api is designed to always return a json object for each image r
 
 It's all over kill, but good fun.
 
-==== Install and run
+Install and run
+---------------
 
 1. Install Ruby 2.1.0 and bundle gem
-2. Install app and run
-  1. clone this repo
-  2. bundle
-  3. bundle exec rails-api s -p 3001 # this port number is vital
+2. Install api app and run
+```shell
+git clone https://github.com/paulcockrell/arnoldclark-api.git
+cd ./arnoldclark-api
+bundle install
+bundle exec rails-api s -p 3001 # this port number is vital
+```
 
-==== Test
+Test
+----
 
-You must be connected to the internet, as it will make calls to the image server
+You must have the API app running as we do browser tests that call out to it.
 
-1. bundle exec rspec -f documentation
+Also there is a currently known registration and stock reference hardcoded into the test, if that is no longer valid then the tests (or one) will fail.
+
+```shell
+cd ./arnoldclark-webapp
+bundle exec rspec -f documentation
+```
